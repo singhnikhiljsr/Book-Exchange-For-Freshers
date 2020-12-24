@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "956130954134",
+    "firebase_url": "https://bookaholic-ec66e.firebaseio.com",
+    "project_id": "bookaholic-ec66e",
+    "storage_bucket": "bookaholic-ec66e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:956130954134:android:1412b8b1826236cbf0ebb7",
+        "android_client_info": {
+          "package_name": "com.example.bookaholic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "956130954134-rg71a7g8jnqacfpt09k9apnmjna70d2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzBMaw0aeHGKEYZEwZ5YP_Ix4_xBU_1hc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "956130954134-rg71a7g8jnqacfpt09k9apnmjna70d2s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
