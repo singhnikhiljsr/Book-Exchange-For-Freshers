@@ -1,2 +1,2 @@
 # Book-Exchange-For-Freshers
-Allows Freshers to buy book from Seniors on this platform
+Gives a platform to Freshers to buy books from Seniors
