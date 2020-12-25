@@ -2,13 +2,19 @@ package com.example.bookaholic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 public class Physics extends AppCompatActivity {
 
@@ -17,7 +23,7 @@ public class Physics extends AppCompatActivity {
     String [] author = {"S.O Pillai","V Rajendran","Arthur Beiser","R K Gaur and S L Gupta"};
     String [] edition = {"Sixth Edition","","Fifth Edition",""};
     int[] images = {R.drawable.so_pillai,R.drawable.v_rajendran,R.drawable.arthur_beiser,R.drawable.rk_gaur};
-//    TextView bookTitle,bookAuthor,bookEdition;
+    TextView bookTitle,bookAuthor,bookEdition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,24 +34,19 @@ public class Physics extends AppCompatActivity {
         listView.setAdapter(customAdapter);
 
 
-//        bookTitle = findViewById(R.id.bookTitle);
-//        bookAuthor = findViewById(R.id.bookAuthor);
-//        bookEdition = findViewById(R.id.bookEdition);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                if (i==0){
-//                    Intent intent = new Intent(Physics.this,PurchasePhysics.class);
-//                    intent.putExtra("image",R.drawable.so_pillai);
-//                    intent.putExtra("bookTitle",bookTitle.getText().toString());
-//                    intent.putExtra("bookAuthor",bookAuthor.getText().toString());
-//                    intent.putExtra("bookEdition",bookEdition.getText().toString());
-//                    startActivity(intent);
-//
-//                }
-//            }
-//        });
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
+                Intent intent = new Intent(Physics.this, BookPurchased.class);
+                intent.putExtra("Object",object);
+                startActivity(intent);
+
+            }
+
+        });
     }
 
     class CustomAdapter extends BaseAdapter {
@@ -81,5 +82,7 @@ public class Physics extends AppCompatActivity {
 
             return view;
         }
+
     }
+
 }

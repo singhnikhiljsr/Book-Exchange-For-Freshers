@@ -2,9 +2,11 @@ package com.example.bookaholic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -25,6 +27,20 @@ public class Maths extends AppCompatActivity {
         listView = findViewById(R.id.listView_maths);
         CustomAdapter customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
+                Intent intent = new Intent(Maths.this, BookPurchased.class);
+                intent.putExtra("Object",object);
+                startActivity(intent);
+
+            }
+
+        });
     }
 
     class CustomAdapter extends BaseAdapter{

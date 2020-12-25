@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Physics">
 
     <ListView
         android:id="@+id/listView_physics"
         android:layout_width="409dp"
         android:layout_height="729dp"
+
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"

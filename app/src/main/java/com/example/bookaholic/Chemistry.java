@@ -2,9 +2,11 @@ package com.example.bookaholic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -14,7 +16,7 @@ public class Chemistry extends AppCompatActivity {
 
     ListView listView;
     String [] bookName = {"Engineering Chemistry","Engineering Chemistry","Wiley’s Engineering\nChemistry","Engineering Chemistry:\nFundamentals & Applications"};
-    String [] author = {"Chandra Shekara B M and Basavaraju B C","P.C. Jain and Monica Jain","Wiley India","Shikha Agarwal"};
+    String [] author = {"Chandra Shekara and Basavaraju B C","P.C. Jain and Monica Jain","Wiley India","Shikha Agarwal"};
     String [] edition = {"","16th Edition","2nd Edition",""};
     int[] images = {R.drawable.basuchandra,R.drawable.jain,R.drawable.wileys,R.drawable.shikha_agarwal};
 
@@ -26,6 +28,20 @@ public class Chemistry extends AppCompatActivity {
         listView = findViewById(R.id.listView_chemistry);
         CustomAdapter customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
+                Intent intent = new Intent(Chemistry.this, BookPurchased.class);
+                intent.putExtra("Object",object);
+                startActivity(intent);
+
+            }
+
+        });
     }
 
     class CustomAdapter extends BaseAdapter {
