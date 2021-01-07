@@ -1,7 +1,5 @@
 package com.example.bookaholic;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Physics extends AppCompatActivity {
 
@@ -23,7 +19,6 @@ public class Physics extends AppCompatActivity {
     String [] author = {"S.O Pillai","V Rajendran","Arthur Beiser","R K Gaur and S L Gupta"};
     String [] edition = {"Sixth Edition","","Fifth Edition",""};
     int[] images = {R.drawable.so_pillai,R.drawable.v_rajendran,R.drawable.arthur_beiser,R.drawable.rk_gaur};
-    TextView bookTitle,bookAuthor,bookEdition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,15 +1,18 @@
 package com.example.bookaholic;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,14 +48,27 @@ public class ViewPdf extends AppCompatActivity {
                     uploadPdfs.add(uploadPdf);
                 }
 
-                String [] pdfName = new String[uploadPdfs.size()];
+                String[] pdfName = new String[uploadPdfs.size()];
 
-                for (int i=0;i<pdfName.length;i++){
+                for (int i = 0; i < pdfName.length; i++) {
 
                     pdfName[i] = uploadPdfs.get(i).getName();
                 }
 
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,pdfName);
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, pdfName) {
+
+
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+
+                        View view = super.getView(position, convertView, parent);
+                        TextView textview = view.findViewById(android.R.id.text1);
+                        textview.setTextColor(Color.WHITE);
+                        textview.setBackgroundColor(R.drawable.gradient_bg);
+
+                        return view;
+                    }
+                };
                 pdfViewer.setAdapter(arrayAdapter);
             }
 
