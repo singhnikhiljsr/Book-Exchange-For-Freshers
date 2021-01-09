@@ -36,7 +36,8 @@ public class Physics extends AppCompatActivity {
 
                 PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
                 Intent intent = new Intent(Physics.this, BookPurchased.class);
-                intent.putExtra("Object",object);
+                intent.putExtra("Object", object);
+                intent.putExtra("item", "book");
                 startActivity(intent);
 
             }

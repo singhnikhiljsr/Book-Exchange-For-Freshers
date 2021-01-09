@@ -1,7 +1,5 @@
 package com.example.bookaholic;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +10,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Chemistry extends AppCompatActivity {
 
     ListView listView;
-    String [] bookName = {"Engineering Chemistry","Engineering Chemistry","Wiley’s Engineering\nChemistry","Engineering Chemistry:\nFundamentals & Applications"};
-    String [] author = {"Chandra Shekara and Basavaraju B C","P.C. Jain and Monica Jain","Wiley India","Shikha Agarwal"};
-    String [] edition = {"","16th Edition","2nd Edition",""};
-    int[] images = {R.drawable.basuchandra,R.drawable.jain,R.drawable.wileys,R.drawable.shikha_agarwal};
+    String[] bookName = {"Engineering Chemistry", "Engineering Chemistry", "Wiley’s Engineering\nChemistry", "Engineering Chemistry:\nFundamentals & Applications"};
+    String[] author = {"Chandra Shekara and Basavaraju B C", "P.C. Jain and Monica Jain", "Wiley India", "Shikha Agarwal"};
+    String[] edition = {"", "16th Edition", "2nd Edition", ""};
+    int[] images = {R.drawable.basuchandra, R.drawable.jain, R.drawable.wileys, R.drawable.shikha_agarwal};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,8 @@ public class Chemistry extends AppCompatActivity {
 
                 PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
                 Intent intent = new Intent(Chemistry.this, BookPurchased.class);
-                intent.putExtra("Object",object);
+                intent.putExtra("Object", object);
+                intent.putExtra("item", "book");
                 startActivity(intent);
 
             }

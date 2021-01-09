@@ -1,7 +1,5 @@
 package com.example.bookaholic;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +10,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class C extends AppCompatActivity {
 
     ListView listView;
-    String [] bookName = {"Programming in C","Programming with C","C Programming Language"};
-    String [] author = {"Reema Thareja","B S Gottfried","Brian W. Kernighan and Dennis M R"};
-    String [] edition = {"Second Edition","","Second Edition"};
-    int[] images = {R.drawable.reema_thareja,R.drawable.bs_gottfried,R.drawable.pearson};
+    String[] bookName = {"Programming in C", "Programming with C", "C Programming Language"};
+    String[] author = {"Reema Thareja", "B S Gottfried", "Brian W. Kernighan and Dennis M R"};
+    String[] edition = {"Second Edition", "", "Second Edition"};
+    int[] images = {R.drawable.reema_thareja, R.drawable.bs_gottfried, R.drawable.pearson};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,8 @@ public class C extends AppCompatActivity {
 
                 PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
                 Intent intent = new Intent(C.this, BookPurchased.class);
-                intent.putExtra("Object",object);
+                intent.putExtra("Object", object);
+                intent.putExtra("item", "book");
                 startActivity(intent);
 
             }

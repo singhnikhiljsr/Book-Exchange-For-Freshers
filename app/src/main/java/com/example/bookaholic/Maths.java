@@ -1,7 +1,5 @@
 package com.example.bookaholic;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +10,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Maths extends AppCompatActivity {
 
     ListView listView;
-    String [] bookName = {"Higher Engineering Maths","Higher Engineering Maths","Engineering Mathematics-1","Engineering Mathematics-2","Engineering Mathematics-3","Engineering Mathematics-4","Graph Theory & Combination"};
-    String [] author = {"B.S. Grewal","B.V. Ramana","Dr. KSC","Dr. KSC","Dr. KSC","Dr. KSC","Dr. DSC"};
-    String [] edition = {"43rd Edition, 2014","7th Edition, 2009","","","","","4th edition, 2011-12"};
-    int[] images = {R.drawable.bsgrewal,R.drawable.bvramana,R.drawable.ksc_em1,R.drawable.ksc_em2,R.drawable.ksc_em3,R.drawable.ksc_em4,R.drawable.dsc_graph_theory};
+    String[] bookName = {"Higher Engineering Maths", "Higher Engineering Maths", "Engineering Mathematics-1", "Engineering Mathematics-2", "Engineering Mathematics-3", "Engineering Mathematics-4", "Graph Theory & Combination"};
+    String[] author = {"B.S. Grewal", "B.V. Ramana", "Dr. KSC", "Dr. KSC", "Dr. KSC", "Dr. KSC", "Dr. DSC"};
+    String[] edition = {"43rd Edition, 2014", "7th Edition, 2009", "", "", "", "", "4th edition, 2011-12"};
+    int[] images = {R.drawable.bsgrewal, R.drawable.bvramana, R.drawable.ksc_em1, R.drawable.ksc_em2, R.drawable.ksc_em3, R.drawable.ksc_em4, R.drawable.dsc_graph_theory};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +32,11 @@ public class Maths extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
+                String item = "book";
+                PassObject object = new PassObject(images[i], bookName[i], author[i], edition[i]);
                 Intent intent = new Intent(Maths.this, BookPurchased.class);
-                intent.putExtra("Object",object);
+                intent.putExtra("Object", object);
+                intent.putExtra("item", "book");
                 startActivity(intent);
 
             }

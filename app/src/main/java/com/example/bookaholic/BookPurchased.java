@@ -1,7 +1,5 @@
 package com.example.bookaholic;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -12,9 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 
 import java.util.Properties;
 
@@ -48,6 +47,7 @@ public class BookPurchased extends AppCompatActivity {
 
         Intent intent = getIntent();
         PassObject object = intent.getParcelableExtra("Object");
+        String item = intent.getStringExtra("item");
 
         int image = object.getImageResource();
         title = object.getTitle();
@@ -64,16 +64,17 @@ public class BookPurchased extends AppCompatActivity {
         final String userEmail = user.getEmail();
         String userDisplayName = user.getDisplayName();
 
-
         final String subject = "Congratulations!! ";
+
         final String textMessage = "Thank You for using Bookaholic!\n\n\n" +
                 "Here are some important information's you need to know:\n\n" +
-                "Below are the details of the seller of the book "+title +" by "+author+"\n\n" +
-                "Either of you can contact each other and decide a nominal price and a safe place to exchange books.\n\n\n" +
+                "Below are the details of the seller of the " + item + " " + title + ", " + author + " (" + edition + ")" + "\n\n" +
+                "Either of you can contact each other and decide a nominal price and a safe place to exchange " + item + "\n\n\n" +
                 "Seller Name :  Rohan Parikh\n" +
                 "Dept./Year  :  ISE, 4th Year\n" +
                 "Contact No. :  7849555323\n" +
                 "Email Id    :  rohanp.is18@bmsce.ac.in";
+
         final String myEmail = "Bookaholic.org@gmail.com";
         final String pass = "BooksAreLove";
 
@@ -82,7 +83,7 @@ public class BookPurchased extends AppCompatActivity {
             public void onClick(View view) {
 
                 Properties properties = new Properties();
-                properties.put("mail.smtp.host","smtp.gmail.com");
+                properties.put("mail.smtp.host", "smtp.gmail.com");
                 properties.put("mail.smtp.auth","true");
                 properties.put("mail.smtp.starttls.enable","true");
                 properties.put("mail.smtp.port","587");
@@ -100,7 +101,7 @@ public class BookPurchased extends AppCompatActivity {
                     message.setFrom(new InternetAddress(myEmail));
                     message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(userEmail));
                     message.setSubject(subject);
-                    message.setText(String.valueOf(textMessage));
+                    message.setText(textMessage);
 
                     new SendMail().execute(message);
                 } catch (MessagingException e) {

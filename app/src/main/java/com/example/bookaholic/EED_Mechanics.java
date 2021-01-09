@@ -1,7 +1,5 @@
 package com.example.bookaholic;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +10,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class EED_Mechanics extends AppCompatActivity {
 
     ListView listView;
-    String [] bookName = {"Engineering Drawings\nVols-1 & 2","Engineering Drawing","Engineering Mechanics","Engineering Mechanics"};
-    String [] author = {"K. R. Gopalakrishna","N.D Bhat& V.M Panchal","A. Nelson","S.S Bhavikatti"};
-    String [] edition = {"","45th Edition","1st Edition","Fifth Edition"};
-    int[] images = {R.drawable.kr_gopalakrishna,R.drawable.nd_bhatt,R.drawable.a_nelson,R.drawable.ss_bhavikatti};
+    String[] bookName = {"Engineering Drawings\nVols-1 & 2", "Engineering Drawing", "Engineering Mechanics", "Engineering Mechanics"};
+    String[] author = {"K. R. Gopalakrishna", "N.D Bhat& V.M Panchal", "A. Nelson", "S.S Bhavikatti"};
+    String[] edition = {"", "45th Edition", "1st Edition", "Fifth Edition"};
+    int[] images = {R.drawable.kr_gopalakrishna, R.drawable.nd_bhatt, R.drawable.a_nelson, R.drawable.ss_bhavikatti};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,8 @@ public class EED_Mechanics extends AppCompatActivity {
 
                 PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
                 Intent intent = new Intent(EED_Mechanics.this, BookPurchased.class);
-                intent.putExtra("Object",object);
+                intent.putExtra("Object", object);
+                intent.putExtra("item", "book");
                 startActivity(intent);
 
             }

@@ -1,7 +1,5 @@
 package com.example.bookaholic;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +10,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Java extends AppCompatActivity {
 
     ListView listView;
-    String [] bookName = {"Object Oriented\nProgramming with C++","C++ :The Complete\nReference","Programming with Java","Java :The Complete\nReference"};
-    String [] author = {"E Balaguruswamy","Herbert Schildt","E Balaguruswamy","Herbert Schildt"};
-    String [] edition = {"6th Edition","4th Edition","6th Edition","11th Edition"};
-    int[] images = {R.drawable.e_balagurusamy,R.drawable.herbert_schildt,R.drawable.e_balagurusamy_java,R.drawable.herbert_schildt_java};
+    String[] bookName = {"Object Oriented\nProgramming with C++", "C++ :The Complete\nReference", "Programming with Java", "Java :The Complete\nReference"};
+    String[] author = {"E Balaguruswamy", "Herbert Schildt", "E Balaguruswamy", "Herbert Schildt"};
+    String[] edition = {"6th Edition", "4th Edition", "6th Edition", "11th Edition"};
+    int[] images = {R.drawable.e_balagurusamy, R.drawable.herbert_schildt, R.drawable.e_balagurusamy_java, R.drawable.herbert_schildt_java};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,8 @@ public class Java extends AppCompatActivity {
 
                 PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
                 Intent intent = new Intent(Java.this, BookPurchased.class);
-                intent.putExtra("Object",object);
+                intent.putExtra("Object", object);
+                intent.putExtra("item", "book");
                 startActivity(intent);
 
             }

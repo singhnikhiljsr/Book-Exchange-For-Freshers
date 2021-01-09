@@ -12,20 +12,20 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Electronics extends AppCompatActivity {
+public class Calculator extends AppCompatActivity {
 
     ListView listView;
-    String[] bookName = {"Basic Electronics Devices,\nCircuits & its Fundamentals", "Electronic Devices and\nCircuits", "Basic Electrical Engineering", "Basic Electrical Engineering"};
-    String[] author = {"Santiram Kal", "David A Bell", "D.C.Kulshreshta", "N. Narasimhaswamy"};
-    String[] edition = {"", "5th Edition", "1st Edition", "1st Edition"};
-    int[] images = {R.drawable.santiram_kal, R.drawable.david_bell, R.drawable.dc_kulshreshtha, R.drawable.narsimha_swamy};
+    String[] bookName = {"FX-991EX", "FX-991ES PLUS", "FX-991ES", "FX-991MS"};
+    String[] author = {"Brand New", "One Year Used", "Two Year Used", "One Year Used"};
+    String[] edition = {"Condition: Good", "Condition: Average", "Condition: Low Display Light ", "Condition: Good"};
+    int[] images = {R.drawable.fx_991ex, R.drawable.fx_991es_plus, R.drawable.fx_991es, R.drawable.fx_991ms};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_electronics);
+        setContentView(R.layout.activity_calculator);
 
-        listView = findViewById(R.id.listView_electronics);
+        listView = findViewById(R.id.listView_calculators);
         CustomAdapter customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
 
@@ -34,10 +34,10 @@ public class Electronics extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                PassObject object = new PassObject(images[i],bookName[i],author[i],edition[i]);
-                Intent intent = new Intent(Electronics.this, BookPurchased.class);
+                PassObject object = new PassObject(images[i], bookName[i], author[i], edition[i]);
+                Intent intent = new Intent(Calculator.this, BookPurchased.class);
                 intent.putExtra("Object", object);
-                intent.putExtra("item", "book");
+                intent.putExtra("item", "Calculator");
                 startActivity(intent);
 
             }
@@ -65,7 +65,7 @@ public class Electronics extends AppCompatActivity {
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
 
-            view = getLayoutInflater().inflate(R.layout.custom_list_view,null);
+            view = getLayoutInflater().inflate(R.layout.custom_list_view, null);
             ImageView bookImage = view.findViewById(R.id.bookImage);
             TextView bookTitle = view.findViewById(R.id.bookTitle);
             TextView bookAuthor = view.findViewById(R.id.bookAuthor);
