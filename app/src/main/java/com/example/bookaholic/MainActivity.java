@@ -1,6 +1,7 @@
 package com.example.bookaholic;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -133,7 +134,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             case R.id.help:
-                Toast.makeText(this, "Contact Bookaholic.org@gmail.com for any kind of assistance", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "Contact Bookaholic.org@gmail.com for any kind of assistance", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:+916204733723"));
+                startActivity(intent);
                 break;
             case R.id.about:
                 Toast.makeText(this, "Made with LOVE " + "\u2764\n" + "Version 1.0\n" + "By Nikhil and Priyanshi", Toast.LENGTH_LONG).show();
