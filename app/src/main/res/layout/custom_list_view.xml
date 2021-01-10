@@ -12,7 +12,7 @@
         android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/splash_screen_background" />
 
     <TextView
         android:id="@+id/bookTitle"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -132,10 +133,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             case R.id.help:
+                Toast.makeText(this, "Contact Bookaholic.org@gmail.com for any kind of assistance", Toast.LENGTH_LONG).show();
                 break;
             case R.id.about:
+                Toast.makeText(this, "Made with LOVE " + "\u2764\n" + "Version 1.0\n" + "By Nikhil and Priyanshi", Toast.LENGTH_LONG).show();
                 break;
             case R.id.feedback:
+                Toast.makeText(this, "Write to us at Bookaholic.org@gmail.com\nWe'll be happy to hear from you!", Toast.LENGTH_LONG).show();
                 break;
         }
 
